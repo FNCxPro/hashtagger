@@ -55,7 +55,7 @@ client.on('message', async (message) => {
             }])
             await dguild.update({
               hashtags: Object.assign(dguild.hashtags || {}, {
-                ht: newChan.id
+                [ht]: newChan.id
               })
             })
             await newChan.setParent(dguild.hashtagCategory)
