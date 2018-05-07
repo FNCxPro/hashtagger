@@ -61,3 +61,5 @@ typings/
 # configuration
 config/*.json
 !config/default.json
+
+models.old/
