@@ -1,0 +1,22 @@
+{
+  "bot": {
+    "owner": "user ID of the owner",
+    "token": "bot token",
+    "prefix": "ht."
+  },
+  "database": {
+    "sequelize": {
+      "dialect": "postgres",
+      "host": "localhost",
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "acquire": 30000,
+        "idle": 10000
+      }
+    },
+    "database": "hashtagger",
+    "username": "username",
+    "password": "pw"
+  }
+}
