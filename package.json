@@ -8,9 +8,14 @@
   "license": "MIT",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
-    "start:dev": "cross-env NODE_ENV=development node index.js"
+    "start:dev": "cross-env NODE_ENV=development node index.js",
+    "migrate": "cross-env NODE_ENV=production sequelize db:migrate",
+    "migrate:dev": "cross-env NODE_ENV=development  sequelize db:migrate",
+    "create": "cross-env NODE_ENV=production sequelize db:create",
+    "create:dev": "cross-env NODE_ENV=production sequelize db:create"
   },
   "dependencies": {
+    "common-tags": "^1.7.2",
     "config": "^1.30.0",
     "cross-env": "^5.1.4",
     "discord.js": "^11.3.2",
@@ -19,6 +24,7 @@
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.37.7",
+    "sequelize-cli": "^4.0.0",
     "sqlite3": "^4.0.0",
     "tedious": "^2.3.1",
     "winston": "^3.0.0-rc5"

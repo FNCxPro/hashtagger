@@ -8,6 +8,7 @@
     "sequelize": {
       "dialect": "postgres",
       "host": "localhost",
+      "operatorsAliases": false,
       "pool": {
         "max": 5,
         "min": 0,
@@ -16,7 +17,18 @@
       }
     },
     "database": "hashtagger",
-    "username": "username",
+    "username": "postgres",
     "password": "pw"
+  },
+  "emoji": {
+    "check": "<:check:404568151783637002>",
+    "cross": "<:xmark:404568151842357248>"
+  },
+  "colors": {
+    "red": "#FF4136",
+    "green": "#2ECC40",
+    "blue": "#0074D9",
+    "orange": "#FF851B",
+    "yellow": "#FFDC00"
   }
 }
