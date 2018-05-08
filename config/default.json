@@ -1,5 +1,7 @@
 {
   "bot": {
+    "clientId": "app client id",
+    "permissions": "67464401",
     "owner": "user ID of the owner",
     "token": "bot token",
     "prefix": "ht.",
