@@ -97,7 +97,7 @@ function gracefulShutdown() {
   db.sequelize.close().then(() => {
     log.info('Finished closing active database connections.')
     log.info('Disconnecting from Discord')
-    client.disconnect().then(() => {
+    client.destroy().then(() => {
       log.info('Disconnected from Discord successfully.')
       process.exit(0)
     })
