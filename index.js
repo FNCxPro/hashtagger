@@ -20,6 +20,7 @@ client.on('ready', () => {
 
 client.on('message', async (message) => {
   if (message.channel.type !== 'dm' && message.guild) {
+    if (message.author.bot) return // Ignore bots
     let guild = message.guild
     // Find or create the guild in the database. I lied, it will be used to see if the server was setup for a hashtag yet.
     // TODO: see about optimization
