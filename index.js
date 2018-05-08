@@ -36,15 +36,19 @@ client.on('message', async (message) => {
         let matches = content.match(/#([A-Za-z0-9]+)/gi)
         if (!matches) return
         let wotags = matches.map((x) => x.substr(1))
+        let comtag = []
         wotags.forEach(async (ht) => {
           let quote = new Discord.RichEmbed()
             .setAuthor(`${message.author.username}#${message.author.discriminator}`, message.author.displayAvatarURL) // Set embed author to the author of the quote
             .setTimestamp(moment(message.createdTimestamp).toISOString()) // Set embed timestamp to when the message was authored
             .setColor(config.get('colors.blue')) // Set the embed color to a blue color defined in the config.
             .setDescription(content.replace(`#${ht}`, `**#${ht}**`)) // Replace the hashtag occurance in the message with a bold one. (TODO: may want to make it actually replace the one that it found, may bug out once in a while)
+          if (dguild.hashtags && typeof dguild.hashtags[ht] === 'boolean' && !dguild.hashtags[ht]) return // Exit out of function if its set to false on the database
+          if (comtag.indexOf(ht) !== -1) return // Exit out of function if the hashtag has already been used in the message
           if (dguild.hashtags && dguild.hashtags[ht]) {
             let htchan = guild.channels.get(dguild.hashtags[ht])
             if (htchan) htchan.send({embed: quote})
+            comtag.push(ht)
           } else {
             if (guild.channels.find('name', ht)) return // Prevent people from making hashtags that already exist or hashtags with the same name as a channel that already exists
             let newChan = await guild.createChannel(ht, 'text', [{
@@ -63,6 +67,7 @@ client.on('message', async (message) => {
             quote.setFooter('This is the first occurance of the hashtag in the server!')
             let quoteMsg = await newChan.send({embed: quote})
             await quoteMsg.pin()
+            comtag.push(ht)
           }
         })
       }
