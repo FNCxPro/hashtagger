@@ -1,5 +1,6 @@
 const { RichEmbed } = require('discord.js')
 const { Command } = require('discord.js-commando')
+const sr = require('common-tags').stripIndents
 const config = require('config')
 const os = require('os')
 module.exports = class InfoCommand extends Command {
