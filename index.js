@@ -9,6 +9,7 @@ const Commando = require('discord.js-commando'),
 const client = new Commando.CommandoClient({
   owner: config.get('bot.owner'),
   commandPrefix: config.get('bot.prefix'),
+  invite: config.get('bot.invite'),
   disableEveryone: true // Don't want people hashtagging and using @everyone :(
 })
 

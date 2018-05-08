@@ -2,7 +2,8 @@
   "bot": {
     "owner": "user ID of the owner",
     "token": "bot token",
-    "prefix": "ht."
+    "prefix": "ht.",
+    "invite": "https://discord.gg/ThzcfRF"
   },
   "database": {
     "sequelize": {
