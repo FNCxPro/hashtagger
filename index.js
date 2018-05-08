@@ -91,4 +91,12 @@ client.registry
 // Login using the token provided in the configuration
 client.login(config.get('bot.token'))
 
+process.on('SIGINT', () => {
+  db.sequelize.close().then(() => {
+    client.disconnect().then(() => {
+      process.exit(0)
+    })
+  }) 
+})
+
 process.on('unhandledRejection', (err) => console.error(err))
