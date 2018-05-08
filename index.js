@@ -37,6 +37,7 @@ client.on('message', async (message) => {
         let matches = content.match(/#([A-Za-z0-9]+)/gi)
         if (!matches) return
         let wotags = matches.map((x) => x.substr(1))
+        wotags.length = config.get('hashtagCutoff')
         let comtag = []
         wotags.forEach(async (ht) => {
           let quote = new Discord.RichEmbed()
