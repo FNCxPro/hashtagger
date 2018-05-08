@@ -91,12 +91,20 @@ client.registry
 // Login using the token provided in the configuration
 client.login(config.get('bot.token'))
 
-process.on('SIGINT', () => {
+function gracefulShutdown() {
+  log.info('Closing active database connections')
   db.sequelize.close().then(() => {
+    log.info('Finished closing active database connections.')
+    log.info('Disconnecting from Discord')
     client.disconnect().then(() => {
+      log.info('Disconnected from Discord successfully.')
       process.exit(0)
     })
   }) 
-})
+}
+
+process.on('message', (message) => message === 'shutdown' ? gracefulShutdown() : false)
+
+process.on('SIGINT', gracefulShutdown)
 
 process.on('unhandledRejection', (err) => console.error(err))
