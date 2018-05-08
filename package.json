@@ -12,7 +12,7 @@
     "migrate": "cross-env NODE_ENV=production sequelize db:migrate",
     "migrate:dev": "cross-env NODE_ENV=development  sequelize db:migrate",
     "create": "cross-env NODE_ENV=production sequelize db:create",
-    "create:dev": "cross-env NODE_ENV=production sequelize db:create"
+    "create:dev": "cross-env NODE_ENV=development sequelize db:create"
   },
   "dependencies": {
     "common-tags": "^1.7.2",
