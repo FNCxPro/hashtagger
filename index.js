@@ -106,5 +106,3 @@ function gracefulShutdown() {
 process.on('message', (message) => message === 'shutdown' ? gracefulShutdown() : false)
 
 process.on('SIGINT', gracefulShutdown)
-
-process.on('unhandledRejection', (err) => console.error(err))
