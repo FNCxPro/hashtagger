@@ -65,7 +65,7 @@ module.exports = class SetupCommand extends Command {
         .addField('Message', `\`\`\`${Util.escapeMarkdown(err.message || 'none')}\`\`\``)
         .addField('Stack', `\`\`\`${Util.escapeMarkdown(err.stack)}\`\`\``)
         .addField('Note', 'If this error is about not having enough permissions, the bot requires create channel permissions for the entire server.')
-        .addField('⚠ Warning', 'Please join [the support server](https://discord.gg/ThzcfRF) and send COPY AND PASTES of the message and stack trace above (and the text below in the footer).\nPlease **DO NOT** send screenshots of this embed.')
+        .addField('⚠ Warning', `Please join [the support server](${config.get('bot.invite')}) and send COPY AND PASTES of the message and stack trace above (and the text below in the footer).\nPlease **DO NOT** send screenshots of this embed.`)
         .setFooter(`hashtagger@${require('../../package.json').version} - ${process.env.NODE_ENV || '*no environment*'}`)
       })
     }
