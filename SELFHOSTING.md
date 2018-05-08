@@ -9,6 +9,12 @@ Sidenote: use [yarn](https://yarnpkg.com).
 4. Copy `config/default.json` to `config/production.json` and change the necessary configuration fields.
 5. Run `yarn run create`
 6. Run `yarn run migrate`
-7. Run `yarn start`
+7. Run `yarn start` (or use `NODE_ENV=production pm2 start index.js --name "Hashtagger`)
 
 The bot *should* be running. We don't explicitly make changes to support selfhosting, but open an issue anyway if you are sure this is a problem in the codebase and not one introduced from your selfhosting environment.
+
+## Updating
+1. Run `cd hashtagger`
+2. Run `yarn install`
+3. Run `yarn run migrate`
+4. Run `yarn start` (or use `NODE_ENV=production pm2 start index.js --name "Hashtagger`)
